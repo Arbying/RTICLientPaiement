@@ -76,11 +76,36 @@ public class ArticleBean {
 
     // Méthode pour afficher les titres des colonnes
     public static String toStringTitres() {
-        return String.format("%-5s %-20s %-10s %-10s", "ID", "Intitule", "Prix", "Stock");
+        StringBuilder sb = new StringBuilder();
+
+        // Ligne de 50 caractères '*'
+        sb.append("*".repeat(50)).append("\n");
+
+        // Ligne avec les titres, séparés par des '|'
+        sb.append("|").append(String.format("%-5s", "ID"));
+        sb.append("|").append(String.format("%-20s", "Intitule"));
+        sb.append("|").append(String.format("%-10s", "Prix"));
+        sb.append("|").append(String.format("%-10s", "Stock")).append("|").append("\n");
+
+        // Ligne de 50 caractères '*'
+        sb.append("*".repeat(50));
+
+        return sb.toString();
     }
 
     // Méthode pour afficher les valeurs de l'objet sous forme de ligne
     public String toStringLigne() {
-        return String.format("%-5d %-20s %-10.2f %-10d", id, intitule, prix, stock);
+        StringBuilder sb = new StringBuilder();
+
+        // Ajout des données de l'article avec des séparateurs '|'
+        sb.append("|").append(String.format("%-5d", id));
+        sb.append("|").append(String.format("%-20s", intitule));
+        sb.append("|").append(String.format("%-10.2f", prix));
+        sb.append("|").append(String.format("%-10d", stock)).append("|").append("\n");
+
+        // Ajout d'une ligne de séparation de 50 caractères '-'
+        sb.append("-".repeat(50));
+
+        return sb.toString();
     }
 }

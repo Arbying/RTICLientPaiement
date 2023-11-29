@@ -40,6 +40,8 @@ public class TCP {
     }
 
     public static int send(Socket socket, byte[] data, int size) {
+
+        //crypte
         if (size > TAILLE_MAX_DATA) {
             return -1;
         }
